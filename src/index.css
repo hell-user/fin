@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Base resets & theme variable overrides to enable "Elegant Dark" aesthetic */
+:root {
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-150: #e2e8f0;
+  --color-slate-200: #cbd5e1;
+  --color-slate-300: #94a3b8;
+  --color-slate-400: #334155;
+  --color-slate-450: #475569;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-850: #0f172a;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+}
+
+.dark {
+  /* True Elegant Dark Palette - Obsidian & Matte Zinc Theme overrides */
+  --color-slate-50: #09090b;       /* Extremely deep dark space canvas background */
+  --color-slate-100: #27272a;      /* Slate-100 behaves as custom borders in forms */
+  --color-slate-150: #1b1b1f;      /* Sleek panel border separation lines */
+  --color-slate-200: #27272a;      /* Subheading text active border lines */
+  --color-slate-300: #3f3f46;      /* Strong divider borders */
+  --color-slate-350: #71717a;      /* Secondary label helper lines */
+  --color-slate-400: #a1a1aa;      /* Gorgeous dim descriptions and captions */
+  --color-slate-405: #71717a;      /* Helper caption elements mapping */
+  --color-slate-450: #71717a;      /* Mid-zinc details */
+  --color-slate-500: #71717a;      /* Sub-headers and inactive state anchors */
+  --color-slate-600: #52525b;      /* Darker grey elements */
+  --color-slate-700: #f4f4f5;      /* Text highlights/white shades */
+  --color-slate-800: #242427;      /* Sidebar custom hover states */
+  --color-slate-850: #1b1b1f;      /* Secondary outline boundaries */
+  --color-slate-900: #181c20;      /* Fine dark trim details */
+  --color-slate-905: #27272a;      /* Mobile divider boundaries */
+  --color-slate-950: #0f0f12;      /* Matte Obsidian Dark premium cards background */
+
+  /* Customize Indigos in Dark Mode for elegant glow */
+  --color-indigo-600: #6366f1;
+  --color-indigo-950: #131325;
+}
+
+html, body {
+  @apply font-sans select-none antialiased md:text-sm;
+  background-color: var(--color-slate-50);
+  color: var(--color-slate-700);
+  transition: background-color 0.25s ease-in-out, border-color 0.2s ease;
+}
+
+/* Premium Dark and Light Scrollbar styling */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-200 dark:bg-zinc-800 rounded-full border border-transparent bg-clip-padding;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-300 dark:bg-zinc-700;
+}
+
+/* Glow effects and animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Cards aesthetic upgrade */
+.elegant-glow-card {
+  position: relative;
+  overflow: hidden;
+}
+.elegant-glow-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.15), transparent);
+  pointer-events: none;
+}
+
